@@ -795,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 224838142478547288, guid: 7efde0cc0639747ca971088b26e64a70,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -78.00003
+      value: -78
       objectReference: {fileID: 0}
     - target: {fileID: 224838142478547288, guid: 7efde0cc0639747ca971088b26e64a70,
         type: 3}
@@ -1101,17 +1101,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c491935d8ac31b45b4e77cb0bfd1225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goodPrefab: {fileID: 5024038527615983820, guid: 0d0fdf9a46f3a874782940d385b56b52,
+  goodPrefab: {fileID: 3222255414426187650, guid: 5b04fca08c32e1b4aad0bffd835405dc,
     type: 3}
   badPrefab: {fileID: 5167608843865305892, guid: bf4b8dc45d70f8345b969367afc4e7c2,
     type: 3}
   pauseTime: 1
   numToSpawn: 200
   chanceToSpawnBad: 0.25
-  activeSpawning: 0
   xRange: 8
   yRangeTop: -2
   yRangeBottom: -3.5
+  activeSpawning: 0
 --- !u!1 &912050778
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,6 +1141,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f08469f5d66bad741987ae6a35014d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onMiniGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  startGameButton: {fileID: 333670515}
+  startPanelText: {fileID: 0}
+  startPanelCg: {fileID: 0}
+  levelText: {fileID: 0}
+  timerText: {fileID: 0}
+  playerSpawnPoint: {fileID: 0}
+  gameObjectLayers: []
 --- !u!4 &912050780
 Transform:
   m_ObjectHideFlags: 0
@@ -1982,8 +1994,8 @@ GameObject:
   - component: {fileID: 1897988657}
   - component: {fileID: 1897988660}
   - component: {fileID: 1897988659}
-  - component: {fileID: 1897988661}
   - component: {fileID: 1897988662}
+  - component: {fileID: 1897988661}
   m_Layer: 11
   m_Name: Player
   m_TagString: Player
@@ -2103,15 +2115,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aab89ede0ba0f9e4782e34dc88abb8a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onPlayerDied:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  onPlayerReachExit:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
   currentHeroState: 0
+  facingRight: 0
   forceX: 300
-  jumpForce: 10
-  grounded: 0
   groundCheck: {fileID: 1837233640}
   groundLayer:
     serializedVersion: 2
     m_Bits: 512
   groundCheckRadius: 0.2
+  jumpForce: 10
+  grounded: 0
 --- !u!95 &1897988662
 Animator:
   serializedVersion: 3

@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         animator.SetInteger("HeroState", (int)HeroState.idle);  //send in the signal: 0
         facingRight = true;
         myRBody2D = GetComponent<Rigidbody2D>();
-        forceX = 100.0f;  //force value may need adjusted
+        forceX = 300.0f;  //force value may need adjusted
 
         groundCheckRadius = 0.2f; //may need modified
         jumpForce = 10f; //may need modified

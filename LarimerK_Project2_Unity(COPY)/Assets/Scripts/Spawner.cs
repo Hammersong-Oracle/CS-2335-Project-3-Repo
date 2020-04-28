@@ -69,13 +69,7 @@ public class Spawner : MonoBehaviour
         {
             Destroy(item.gameObject);
         }
-
-        //if using scoreItems
-        ScorePickUp[] scoreItems = FindObjectsOfType<ScorePickUp>();
-        foreach (ScorePickUp scoreItem in scoreItems)
-        {
-            Destroy(scoreItem.gameObject);
-        }
+        
 
         Hazard[] hazards = FindObjectsOfType<Hazard>();
         foreach (Hazard hazard in hazards)

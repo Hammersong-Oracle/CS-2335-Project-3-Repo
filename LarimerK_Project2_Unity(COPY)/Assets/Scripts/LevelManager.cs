@@ -230,11 +230,12 @@ public class LevelManager : MonoBehaviour
         {
             GameData.instanceRef.miniGameWinner = false;
         }
-        //In all cases do the following
+        /*//In all cases do the following
         if (onMiniGameEnd != null) //some listener (MiniGState)
         {
             onMiniGameOver.Invoke();
         }
+        */
         //invoke custom event to notify MiniGState where sceneChange logic an be executed.
     } //end MiniGameOver
 
