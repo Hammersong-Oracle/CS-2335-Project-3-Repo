@@ -114,7 +114,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 472}
   m_MaxSize: {x: 18008, y: 14022}
   vertical: 0
-  controlID: 34
+  controlID: 64
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_MinSize: {x: 436, y: 472}
   m_MaxSize: {x: 14006, y: 14022}
   vertical: 0
-  controlID: 40
+  controlID: 88
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -194,7 +194,7 @@ MonoBehaviour:
   m_MinSize: {x: 234, y: 472}
   m_MaxSize: {x: 10004, y: 14022}
   vertical: 1
-  controlID: 41
+  controlID: 89
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_ViewDataDictionary: {fileID: 0}
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 28120
+  m_LastSelectedObjectID: 26194
 --- !u!114 &13
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -420,9 +420,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.9615418, y: -0.34429538, z: -5.3796525}
+    m_Target: {x: 2.1206603, y: -2.1241174, z: -266.86264}
     speed: 2
-    m_Value: {x: -0.9615418, y: -0.34429538, z: -5.3796525}
+    m_Value: {x: 2.1206603, y: -2.1241174, z: -266.86264}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -455,9 +455,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 11.758698
+    m_Target: 13.107527
     speed: 2
-    m_Value: 11.758698
+    m_Value: 13.107527
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -618,9 +618,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
+      m_SelectedIDs: e42c0000
       m_LastClickedID: 0
-      m_ExpandedIDs: 02b7ffff4ab8ffffecb8ffffb8baffff90c2ffff86c6ffffd2c8ffff88c9ffff50cdffff5cd0ffffe6d6ffff18daffff22e8ffffbae8ffff8eebffff30edffffa4edffff18eeffff48efffff4ef7ffff84faffff8efbffffa0340000b6340000d034000048380000103a0000123b0000d03b0000783f00009a3f000088490000
+      m_ExpandedIDs: 64c9ffffdccaffff5ad1ffff04d3ffff3adaffffdeddffffa4deffffb6dfffff80e0ffff24e1ffffd4e2ffffbceaffff28f6ffff40f7fffff6f9ffff8efbfffff4ffffffe8360000043e0000b4490000ee4c0000f6590000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -682,19 +682,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes
   m_ViewMode: 1
   m_StartGridSize: 50
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes
   m_LastFoldersGridSize: 50
   m_LastProjectPath: E:\Schoolwork\CS 2\Project 3\CS-2335-Project-3-Repo\LarimerK_Project2_Unity(COPY)
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: b4300000
-    m_LastClickedID: 12468
+    m_SelectedIDs: 2e300000
+    m_LastClickedID: 12334
     m_ExpandedIDs: 00000000922c0000b430000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0

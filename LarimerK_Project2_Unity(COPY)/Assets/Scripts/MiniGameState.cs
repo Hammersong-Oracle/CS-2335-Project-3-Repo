@@ -20,6 +20,7 @@ public class MiniGameState : IStateBase
     }
 
     private Button optionBtn1, scene2Button, miniGameButton, scene3Button, beginSceneButton;
+    LevelManager levelManager;
     [SerializeField] GameObject playerToCheck;
 
     public  MiniGameState()
@@ -31,6 +32,9 @@ public class MiniGameState : IStateBase
     {
         beginSceneButton = GameObject.Find("BeginSceneButton").GetComponent<Button>();
         beginSceneButton.onClick.AddListener(LoadBeginScene); //call custom method defined below
+
+        levelManager = Object.FindObjectOfType<LevelManager>();
+        levelManager.onMiniGameOver.AddListener(LoadEndScene);
     }
 
     public void LoadEndScene()

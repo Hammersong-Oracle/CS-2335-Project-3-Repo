@@ -51,6 +51,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         //SETUP Event Listeners
+        GameData.instanceRef.ResetGameData();
+
         playerController = FindObjectOfType<PlayerController>(); //Assumes only 1 exists
         player = playerController.gameObject;
         playerController.onPlayerDied.AddListener(ReloadMiniGame);
@@ -63,6 +65,7 @@ public class LevelManager : MonoBehaviour
         gameObjectLayers[0].SetActive(true); //Level1 gameObjects, spawner, background, floor
         gameObjectLayers[1].SetActive(false); //Level1 gameObjects, spawner, background, floor
         gameObjectLayers[2].SetActive(false); //Level1 gameObjects, spawner, background, floor
+        gameObjectLayers[3].SetActive(false); //Level1 gameObjects, spawner, background, floor
         curLevel = LevelState.start;
 
         //show Start Panel at start of Scene.
@@ -127,6 +130,7 @@ public class LevelManager : MonoBehaviour
             case LevelState.level3: //called when in Level3 from checkLevelEnd( )
                 curLevel = LevelState.win;
                 MiniGameOver();
+                Debug.Log("Winstate met");
                 break;
 
             default:
@@ -224,6 +228,36 @@ public class LevelManager : MonoBehaviour
         gameObjectLayers[0].SetActive(false); //level1 - needs changed for l3
         gameObjectLayers[1].SetActive(false); //level2 - needs changed for l3
         gameObjectLayers[2].SetActive(true); //level2 - needs changed for l3
+
+        ResetPlayerPosition(); //move player to spawn point
+        player.SetActive(true);
+        StartSpawner(LevelState.level3);// -- needs changed for l3
+
+        levelText.text = "Level 3"; //- needs changed for l3
+
+        Utility.HideCG(startPanelCg); //hide panel
+        //StartCoroutine(reloadTimer(20));  //change per level?
+    }
+    void LoadWinLevel()
+    {
+        player.SetActive(false);
+        StopSpawner(LevelState.level3); //- needs changed for l3
+
+        StopAllCoroutines(); //stop timer
+        startGameButton.onClick.RemoveAllListeners();
+
+        startGameButton.onClick.AddListener(StartWinLevel); //- needs changed for l3
+        startPanelText.text = "You Won!"; //-- needs changed for l3
+
+        Utility.ShowCG(startPanelCg);  //show panel
+    }
+
+    public void StartWinLevel()
+    {
+        gameObjectLayers[0].SetActive(false); //level1 - needs changed for l3
+        gameObjectLayers[1].SetActive(false); //level2 - needs changed for l3
+        gameObjectLayers[2].SetActive(false); //level2 - needs changed for l3
+        gameObjectLayers[3].SetActive(true); //level2 - needs changed for l3
 
         ResetPlayerPosition(); //move player to spawn point
         player.SetActive(true);
