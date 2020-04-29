@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour
 
     LevelState curLevel; // FSM - 1 unit of memory
 
-    int maxLevelScore = 30; //when to change levels, set in inspector
+    [SerializeField] int maxLevelScore = 30; //when to change levels, set in inspector
 
     //UI game Objects - LevelValue, StartGameButton, StartGamePanel
     [SerializeField]
@@ -44,7 +44,6 @@ public class LevelManager : MonoBehaviour
 
     GameObject player;
     PlayerController playerController;
-
 
     [SerializeField]
     GameObject[] gameObjectLayers;
@@ -116,11 +115,13 @@ public class LevelManager : MonoBehaviour
             case LevelState.level1: //called when in Level1 from checkLevelEnd( )
                 curLevel = LevelState.level2; //change level
                 LoadLevel2();
+                StartLevel2();
                 break;
 
             case LevelState.level2: //called when in Level2 from checkLevelEnd( )
                 curLevel = LevelState.level3; //change level
                 LoadLevel3();
+                StartLevel3();
                 break;
 
             case LevelState.level3: //called when in Level3 from checkLevelEnd( )
@@ -143,7 +144,6 @@ public class LevelManager : MonoBehaviour
         player.SetActive(false);
         StopSpawner(LevelState.level3); //- needs changed for l3
         StopAllCoroutines(); //stop timer
-                             // fader.FadeReset(); //fadeOut - fadeInstartGameButton.onClick.RemoveAllListeners();
 
         startGameButton.onClick.AddListener(StartLevel1); //- needs changed for l3
         startPanelText.text = "Start Level 1"; //-- needs changed for l3
@@ -166,7 +166,7 @@ public class LevelManager : MonoBehaviour
         levelText.text = "Level 1"; //- needs changed for l3
 
         Utility.HideCG(startPanelCg); //hide panel
-        StartCoroutine(reloadTimer(20));
+        //StartCoroutine(reloadTimer(20));
 
 
     }
@@ -201,18 +201,38 @@ public class LevelManager : MonoBehaviour
         levelText.text = "Level 2"; //- needs changed for l3
 
         Utility.HideCG(startPanelCg); //hide panel
-        StartCoroutine(reloadTimer(20));  //change per level?
+        //StartCoroutine(reloadTimer(20));  //change per level?
     }
 
 
     void LoadLevel3()
     {
-        //add your code here
+        player.SetActive(false);
+        StopSpawner(LevelState.level2); //- needs changed for l3
+
+        StopAllCoroutines(); //stop timer
+        startGameButton.onClick.RemoveAllListeners();
+
+        startGameButton.onClick.AddListener(StartLevel3); //- needs changed for l3
+        startPanelText.text = "Start Level 3"; //-- needs changed for l3
+
+        Utility.ShowCG(startPanelCg);  //show panel
     }
 
     public void StartLevel3()
     {
-        // add your code here
+        gameObjectLayers[0].SetActive(false); //level1 - needs changed for l3
+        gameObjectLayers[1].SetActive(false); //level2 - needs changed for l3
+        gameObjectLayers[2].SetActive(true); //level2 - needs changed for l3
+
+        ResetPlayerPosition(); //move player to spawn point
+        player.SetActive(true);
+        StartSpawner(LevelState.level3);// -- needs changed for l3
+
+        levelText.text = "Level 3"; //- needs changed for l3
+
+        Utility.HideCG(startPanelCg); //hide panel
+        //StartCoroutine(reloadTimer(20));  //change per level?
     }
 
 
@@ -230,12 +250,13 @@ public class LevelManager : MonoBehaviour
         {
             GameData.instanceRef.miniGameWinner = false;
         }
-        /*//In all cases do the following
-        if (onMiniGameEnd != null) //some listener (MiniGState)
+        //In all cases do the following
+        // if (onMiniGameEnd != null) //some listener (MiniGState) Just in case
+        if (onMiniGameOver != null) //some listener (MiniGState)
         {
             onMiniGameOver.Invoke();
         }
-        */
+        
         //invoke custom event to notify MiniGState where sceneChange logic an be executed.
     } //end MiniGameOver
 
@@ -273,7 +294,7 @@ public class LevelManager : MonoBehaviour
         player.transform.localPosition = playerSpawnPoint.transform.localPosition;
     }
 
-    /// <summary>
+    /* /// <summary>
     /// Reloads the Scene when the timer runs out
     /// </summary>
     /// <returns>The timer.</returns>
@@ -291,6 +312,7 @@ public class LevelManager : MonoBehaviour
         //Timer is over - if the timer runs out
         ReloadMiniGame();
     }
+    */
 
     /// <summary>
     /// 
